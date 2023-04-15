@@ -26,7 +26,7 @@ const app = express();
 //Middlewares
 app.use(
   cors({
-    origin: "https://super-blog-app.netlify.app/",
+    origin: "https://super-blog-app.netlify.app",
     credentials: true,
   })
 );
