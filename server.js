@@ -26,7 +26,7 @@ const app = express();
 //Middlewares
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin: "https://super-blog-app.netlify.app/",
     credentials: true,
   })
 );
@@ -119,6 +119,12 @@ app.post("/articles/:articleId/comments", async (req, res) => {
   } catch (err) {
     res.status(500).json({ message: err });
   }
+});
+
+//error handling middlware
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).send("Something broke!");
 });
 
 const PORT = process.env.PORT || 3000;
